@@ -2,7 +2,8 @@ import * as http from 'http';
 import * as url from 'url';
 import * as path from 'path';
 import { promises as fs } from 'fs';
-import * as Serverless from 'serverless';
+
+import Serverless = require('serverless');
 
 interface contentTypeMap {
   readonly [key: string]: string;

@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "jest --coverage"
   },
   "repository": {
@@ -73,8 +74,5 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "errorOnDeprecated": true
-  },
-  "dependencies": {
-    "serverless": "^1.52.0"
   }
 }

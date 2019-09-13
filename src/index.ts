@@ -1,5 +1,6 @@
-import * as Serverless from 'serverless';
 import serve from './serve';
+
+import Serverless = require('serverless');
 
 interface PluginConfigOptions {
   readonly [key: string]: {
