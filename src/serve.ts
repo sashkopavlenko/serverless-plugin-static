@@ -57,13 +57,14 @@ interface PluginSettings {
 export default (serverless: Serverless, { folder, port }: PluginSettings) =>
   new Promise(resolve => {
     const requestHandler = handler(folder);
-    http.createServer(requestHandler).listen(port, () => {
+    const server = http.createServer(requestHandler);
+    server.listen(port, () => {
       serverless.cli.log(
         `[ Static ] serving static files from ${folder} folder`
       );
       serverless.cli.log(
         `[ Static ] serving static files on http://localhost:${port}`
       );
-      resolve();
+      resolve(server);
     });
   });
