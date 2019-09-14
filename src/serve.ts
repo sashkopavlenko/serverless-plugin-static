@@ -49,15 +49,21 @@ const handler = (folder: string) => async (
   }
 };
 
-export default (
-  serverless: Serverless,
-  { folder, port }: { folder: string; port: number | string }
-) => {
-  const requestHandler = handler(folder);
-  http.createServer(requestHandler).listen(port);
+interface PluginSettings {
+  folder: string;
+  port: number;
+}
 
-  serverless.cli.log(`[ Static ] serving static files from ${folder} folder`);
-  serverless.cli.log(
-    `[ Static ] serving static files on http://localhost:${port}`
-  );
-};
+export default (serverless: Serverless, { folder, port }: PluginSettings) =>
+  new Promise(resolve => {
+    const requestHandler = handler(folder);
+    http.createServer(requestHandler).listen(port, () => {
+      serverless.cli.log(
+        `[ Static ] serving static files from ${folder} folder`
+      );
+      serverless.cli.log(
+        `[ Static ] serving static files on http://localhost:${port}`
+      );
+      resolve();
+    });
+  });

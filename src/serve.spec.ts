@@ -1,4 +1,4 @@
-import serve from '../serve';
+import serve from './serve';
 
 describe('serve', () => {
   it('should be defined', () => {
