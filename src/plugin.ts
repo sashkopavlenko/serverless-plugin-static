@@ -11,7 +11,7 @@ interface PluginOptions extends Serverless.Options {
 
 const defaults = {
   port: 8080,
-  folder: 'static',
+  folder: './static',
 };
 
 export default class ServerlessStaticLocalPlugin {
@@ -42,14 +42,14 @@ export default class ServerlessStaticLocalPlugin {
 
     const settings = {
       port:
-        serverlessConfig.port ||
         Number(options.port) ||
         Number(options.p) ||
+        serverlessConfig.port ||
         defaults.port,
       folder:
-        serverlessConfig.folder ||
         options.folder ||
         options.f ||
+        serverlessConfig.folder ||
         defaults.folder,
     };
 
