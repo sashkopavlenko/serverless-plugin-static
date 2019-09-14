@@ -10,6 +10,9 @@ before_script:
   - npx audit-ci --low
   - npm run lint
 
+script:
+  - npm t -- --coverageReporters=text-lcov | npx coveralls
+
 before_deploy:
   - npm run build
 
