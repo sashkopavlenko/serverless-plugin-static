@@ -8,18 +8,19 @@ A serverless framework plugin to serve static files locally
 
 ## Contents
 
-1. [Usage requirements](#usage)
+1. [Usage requirements](#usage-requirements)
 2. [Installation](#installation)
-3. [Quick start](#quickstart)
+3. [Quick start](#quick-start)
 
 ## Usage requirements
 
 Requires Node 10.
+
 It's recommended to use this plugin along with [serverless-offline](https://github.com/dherault/serverless-offline).
 
 ## Installation
 
-Obviously, you should have [Serverless-framework](https://github.com/serverless/serverless) installed. If it's not, please start from this [guide](https://serverless.com/framework/docs/getting-started/)
+Obviously, you should have [Serverless-framework](https://github.com/serverless/serverless) installed. If it's not, please start from this [guide](https://serverless.com/framework/docs/getting-started/).
 
 Then install the package:
 
@@ -35,7 +36,7 @@ npm install serverless-offline -D
 
 ## Quick start
 
-Add the plugins to your serverless.yml
+Add the plugins to your serverless.yml:
 
 ```YAML
 plugins:
