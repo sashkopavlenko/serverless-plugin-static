@@ -29,14 +29,13 @@ const handler = (folder: string) => async (
   res: http.ServerResponse
 ) => {
   try {
-    const parsedUrl = url.parse(req.url || '');
-    const pathname = path.join(folder, parsedUrl.pathname || '');
+    const parsedUrl = url.parse(String(req.url));
+    const pathname = path.join(folder, String(parsedUrl.pathname));
 
     const { ext } = path.parse(pathname);
 
     const data = await fs.readFile(pathname);
-
-    res.setHeader('Content-type', fileExtToContentTypeMap[ext] || 'text/plain');
+    res.setHeader('Content-Type', fileExtToContentTypeMap[ext] || 'text/plain');
     return res.end(data);
   } catch (error) {
     if (error.code === 'ENOENT') {
