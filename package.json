@@ -29,7 +29,7 @@
     "@types/serverless": "^1.18.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "audit-ci": "^2.3.0",
-    "eslint": "^6.3.0",
+    "eslint": "^6.4.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
@@ -73,6 +73,14 @@
     },
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
-    "errorOnDeprecated": true
+    "errorOnDeprecated": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": -1
+      }
+    }
   }
 }
