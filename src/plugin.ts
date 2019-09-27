@@ -1,6 +1,7 @@
 import serve from './serve';
 
 import Serverless = require('serverless');
+import Plugin = require('serverless/classes/Plugin');
 
 interface PluginOptions extends Serverless.Options {
   port?: string;
@@ -14,7 +15,7 @@ const defaults = {
   folder: './static',
 };
 
-export default class ServerlessStaticLocalPlugin {
+export default class ServerlessStaticLocalPlugin implements Plugin {
   commands = {
     serve: {
       usage: 'serve local directory',
@@ -32,7 +33,7 @@ export default class ServerlessStaticLocalPlugin {
     },
   };
 
-  hooks: { [event: string]: (...rest: any[]) => any };
+  hooks: Plugin['hooks'];
 
   constructor(serverless: Serverless, options: PluginOptions) {
     const serverlessConfig =
