@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import { Server } from 'https';
 import * as request from 'supertest';
 import { promises as fs } from 'fs';
