@@ -41,7 +41,7 @@ describe('Plugin without options', () => {
     expect(settings.port).toBe(defaultPort);
   });
 
-  const defaultFolder = 'static';
+  const defaultFolder = './static';
   it(`should pass default ${defaultFolder} folder to server`, async () => {
     plugin.hooks['serve:start']();
     const [, settings] = serveMock.mock.calls[0];
@@ -50,16 +50,19 @@ describe('Plugin without options', () => {
 });
 
 describe('Plugin with yaml config', () => {
-  const serverless = ({
-    service: {
-      custom: {
-        static: {
-          folder: 'dist',
-          port: 3000,
+  const serverless =
+    ({
+      service: {
+        custom: {
+          static: {
+            folder: 'dist',
+            port: 3000,
+          },
         },
       },
-    },
-  } as any) as Serverless;
+    } as
+      any) as
+    Serverless;
   const options = {
     stage: '',
     region: '',

@@ -54,7 +54,7 @@ interface PluginSettings {
 }
 
 export default (serverless: Serverless, { folder, port }: PluginSettings) =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     const requestHandler = handler(folder);
     const server = http.createServer(requestHandler);
     server.listen(port, () => {
