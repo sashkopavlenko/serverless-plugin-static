@@ -1,6 +1,5 @@
 import StaticPlugin from './plugin';
 import * as ServerModule from './serve';
-
 import Serverless = require('serverless');
 
 const serveMock = jest
@@ -50,19 +49,16 @@ describe('Plugin without options', () => {
 });
 
 describe('Plugin with yaml config', () => {
-  const serverless =
-    ({
-      service: {
-        custom: {
-          static: {
-            folder: 'dist',
-            port: 3000,
-          },
+  const serverless = ({
+    service: {
+      custom: {
+        static: {
+          folder: 'dist',
+          port: 3000,
         },
       },
-    } as
-      any) as
-    Serverless;
+    },
+  } as any) as Serverless;
   const options = {
     stage: '',
     region: '',

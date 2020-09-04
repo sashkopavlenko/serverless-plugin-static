@@ -1,5 +1,4 @@
 import serve from './serve';
-
 import Serverless = require('serverless');
 import Plugin = require('serverless/classes/Plugin');
 

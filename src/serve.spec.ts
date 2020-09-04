@@ -3,7 +3,6 @@ import { Server } from 'https';
 import * as request from 'supertest';
 import { promises as fs } from 'fs';
 import serve from './serve';
-
 import Serverless = require('serverless');
 
 class FileNotFound extends Error {
@@ -46,20 +45,18 @@ jest
     return Promise.resolve(file);
   });
 
-const serverless =
-  {
-    cli: { log: jest.fn() },
-  } as any;
+const serverless = {
+  cli: { log: jest.fn() },
+} as any;
 
 describe('Server', () => {
   let server: Server;
 
   beforeAll(async () => {
-    server =
-      (await serve(<Serverless>serverless, {
-        folder: 'static',
-        port: 8080,
-      })) as Server;
+    server = (await serve(<Serverless>serverless, {
+      folder: 'static',
+      port: 8080,
+    })) as Server;
   });
 
   afterAll(() => server.close());

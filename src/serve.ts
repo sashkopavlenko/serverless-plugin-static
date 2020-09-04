@@ -5,11 +5,11 @@ import { promises as fs } from 'fs';
 
 import Serverless = require('serverless');
 
-interface contentTypeMap {
+interface ContentTypeMap {
   readonly [key: string]: string;
 }
 
-const fileExtToContentTypeMap: contentTypeMap = {
+const fileExtToContentTypeMap: ContentTypeMap = {
   '.ico': 'image/x-icon',
   '.html': 'text/html',
   '.js': 'text/javascript',
