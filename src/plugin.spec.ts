@@ -49,7 +49,7 @@ describe('Plugin without options', () => {
 });
 
 describe('Plugin with yaml config', () => {
-  const serverless = ({
+  const serverless = {
     service: {
       custom: {
         static: {
@@ -58,7 +58,7 @@ describe('Plugin with yaml config', () => {
         },
       },
     },
-  } as any) as Serverless;
+  } as any as Serverless;
   const options = {
     stage: '',
     region: '',

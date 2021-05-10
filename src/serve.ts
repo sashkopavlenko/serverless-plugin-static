@@ -24,29 +24,31 @@ const fileExtToContentTypeMap: ContentTypeMap = {
   '.doc': 'application/msword',
 };
 
-const handler = (folder: string) => async (
-  req: http.IncomingMessage,
-  res: http.ServerResponse
-) => {
-  try {
-    const parsedUrl = url.parse(String(req.url));
-    const pathname = path.join(folder, String(parsedUrl.pathname));
+const handler =
+  (folder: string) =>
+  async (req: http.IncomingMessage, res: http.ServerResponse) => {
+    try {
+      const parsedUrl = url.parse(String(req.url));
+      const pathname = path.join(folder, String(parsedUrl.pathname));
 
-    const { ext } = path.parse(pathname);
+      const { ext } = path.parse(pathname);
 
-    const data = await fs.readFile(pathname);
-    res.setHeader('Content-Type', fileExtToContentTypeMap[ext] || 'text/plain');
-    return res.end(data);
-  } catch (error) {
-    if (error.code === 'ENOENT') {
-      res.statusCode = 404;
-      return res.end(`File not found`);
+      const data = await fs.readFile(pathname);
+      res.setHeader(
+        'Content-Type',
+        fileExtToContentTypeMap[ext] || 'text/plain'
+      );
+      return res.end(data);
+    } catch (error) {
+      if (error.code === 'ENOENT') {
+        res.statusCode = 404;
+        return res.end(`File not found`);
+      }
+
+      res.statusCode = 500;
+      return res.end(`Error getting the file: ${error}.`);
     }
-
-    res.statusCode = 500;
-    return res.end(`Error getting the file: ${error}.`);
-  }
-};
+  };
 
 interface PluginSettings {
   folder: string;
