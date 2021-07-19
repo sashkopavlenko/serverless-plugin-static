@@ -65,93 +65,80 @@ describe('Server', () => {
     expect(server).toBeDefined();
   });
 
-  it('GET /not-exists - 404 status code', (done) =>
-    request(server).get('/not-exists').expect(404).end(done));
+  it('GET /not-exists - 404 status code', () =>
+    request(server).get('/not-exists').expect(404));
 
-  it('GET /favicon.ico - 200 status code', (done) =>
-    request(server).get('/favicon.ico').expect(200).end(done));
+  it('GET /favicon.ico - 200 status code', () =>
+    request(server).get('/favicon.ico').expect(200));
 
-  it('GET /index.html - text/html Content-Type', (done) =>
+  it('GET /index.html - text/html Content-Type', () =>
     request(server)
       .get('/index.html')
-      .expect('Content-Type', /text\/html/)
-      .end(done));
+      .expect('Content-Type', /text\/html/));
 
-  it('GET /index.js - text/javascript response', async (done) => {
+  it('GET /index.js - text/javascript response', async () => {
     const response = await request(server).get('/index.js');
     expect(response.text).toBe('text/javascript');
-    done();
   });
 
-  it('GET /denied - 500 status code', (done) =>
-    request(server).get('/denied').expect(500).end(done));
+  it('GET /denied - 500 status code', () =>
+    request(server).get('/denied').expect(500));
 
-  it('GET /denied - 500 status code', (done) =>
-    request(server).get('/denied').expect(500).end(done));
+  it('GET /denied - 500 status code', () =>
+    request(server).get('/denied').expect(500));
 
-  it('GET /index - text/plain Content-Type', (done) =>
+  it('GET /index - text/plain Content-Type', () =>
     request(server)
       .get('/index')
-      .expect('Content-Type', /text\/plain/)
-      .end(done));
+      .expect('Content-Type', /text\/plain/));
 
-  it('GET /file.json - application/json Content-Type', (done) =>
+  it('GET /file.json - application/json Content-Type', () =>
     request(server)
       .get('/file.json')
-      .expect('Content-Type', /application\/json/)
-      .end(done));
+      .expect('Content-Type', /application\/json/));
 
-  it('GET /file.css - text/css Content-Type', (done) =>
+  it('GET /file.css - text/css Content-Type', () =>
     request(server)
       .get('/file.css')
-      .expect('Content-Type', /text\/css/)
-      .end(done));
+      .expect('Content-Type', /text\/css/));
 
-  it('GET /image.png - image/png Content-Type', (done) =>
+  it('GET /image.png - image/png Content-Type', () =>
     request(server)
       .get('/image.png')
-      .expect('Content-Type', /image\/png/)
-      .end(done));
+      .expect('Content-Type', /image\/png/));
 
-  it('GET /image.jpg - image/jpeg Content-Type', (done) =>
+  it('GET /image.jpg - image/jpeg Content-Type', () =>
     request(server)
       .get('/image.jpg')
-      .expect('Content-Type', /image\/jpeg/)
-      .end(done));
+      .expect('Content-Type', /image\/jpeg/));
 
-  it('GET /audio.wav - audio/wav Content-Type', (done) =>
+  it('GET /audio.wav - audio/wav Content-Type', () =>
     request(server)
       .get('/audio.wav')
-      .expect('Content-Type', /audio\/wav/)
-      .end(done));
+      .expect('Content-Type', /audio\/wav/));
 
-  it('GET /audio.mp3 - audio/mpeg Content-Type', (done) =>
+  it('GET /audio.mp3 - audio/mpeg Content-Type', () =>
     request(server)
       .get('/audio.mp3')
-      .expect('Content-Type', /audio\/mpeg/)
-      .end(done));
+      .expect('Content-Type', /audio\/mpeg/));
 
-  it('GET /pic.svg - image/svg+xml Content-Type', (done) =>
+  it('GET /pic.svg - image/svg+xml Content-Type', () =>
     request(server)
       .get('/pic.svg')
-      .expect('Content-Type', /image\/svg\+xml/)
-      .end(done));
+      .expect('Content-Type', /image\/svg\+xml/));
 
-  it('GET /doc.pdf - application/pdf Content-Type', (done) =>
+  it('GET /doc.pdf - application/pdf Content-Type', () =>
     request(server)
       .get('/doc.pdf')
-      .expect('Content-Type', /application\/pdf/)
-      .end(done));
+      .expect('Content-Type', /application\/pdf/));
 
-  it('GET /doc.doc - application/msword Content-Type', (done) =>
+  it('GET /doc.doc - application/msword Content-Type', () =>
     request(server)
       .get('/doc.doc')
-      .expect('Content-Type', /application\/msword/)
-      .end(done));
+      .expect('Content-Type', /application\/msword/));
 
-  it('GET /index - text/plain Content-Type', (done) =>
+  it('GET /index - text/plain Content-Type', () =>
     request(server)
       .get('/index')
-      .expect('Content-Type', /text\/plain/)
-      .end(done));
+      .expect('Content-Type', /text\/plain/));
 });
