@@ -82,5 +82,8 @@
         "statements": -1
       }
     }
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
