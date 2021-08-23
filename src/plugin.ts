@@ -23,10 +23,12 @@ export default class ServerlessStaticLocalPlugin implements Plugin {
         port: {
           usage: `Static server port, default: ${defaults.port}`,
           shortcut: 'p',
+          type: 'string',
         },
         folder: {
           usage: `Static folder path, default: ${defaults.folder}`,
           shortcut: 'f',
+          type: 'string',
         },
       },
     },
