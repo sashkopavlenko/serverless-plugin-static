@@ -76,6 +76,6 @@ Note: do not use CLI options with `serverless-offline start` command or any othe
 [npm-image]: https://img.shields.io/npm/v/serverless-plugin-static.svg
 [npm-url]: https://npmjs.org/package/serverless-plugin-static
 [travis-image]: https://travis-ci.com/sashkopavlenko/serverless-plugin-static.svg?branch=master
-[travis-url]: https://travis-ci.com/sashkopavlenko/serverless-plugin-static
+[travis-url]: https://app.travis-ci.com/sashkopavlenko/serverless-plugin-static
 [coveralls-image]: https://coveralls.io/repos/github/sashkopavlenko/serverless-plugin-static/badge.svg?branch=master
 [coveralls-url]: https://coveralls.io/r/sashkopavlenko/serverless-plugin-static?branch=master
