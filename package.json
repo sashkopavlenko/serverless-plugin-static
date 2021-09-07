@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-static",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "serverless framework plugin to server static files locally",
   "main": "dist/index.js",
   "scripts": {
