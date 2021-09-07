@@ -39,7 +39,7 @@ const handler =
         fileExtToContentTypeMap[ext] || 'text/plain'
       );
       return res.end(data);
-    } catch (error) {
+    } catch (error: any) {
       if (error.code === 'ENOENT') {
         res.statusCode = 404;
         return res.end(`File not found`);
